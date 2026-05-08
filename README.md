@@ -5,10 +5,6 @@ A data science project that investigates whether weather conditions influence mu
 ## Research Question
 Do weather conditions (rain, sun, clouds, etc.) correlate with the emotional tone of music people listen to?
 
-## Datasets
-- **Spotify Mood Dataset (Moodify):** 278k labeled songs with audio features (valence, energy, danceability, tempo, acousticness) — [Kaggle](https://www.kaggle.com/datasets/abdullahorzan/moodify-dataset)
-- **Historical Hourly Weather Data 2012-2017:** Hourly weather readings across 36 cities (temperature, humidity, weather description) — [Kaggle](https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data)
-
 ## Requirements
 - Python 3.11+
 - A free Kaggle account to download the datasets
@@ -29,13 +25,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Run the setup script and follow the instructions to download and place the datasets:
+3. Create the data folders:
 ```bash
-python3 setup.py
+mkdir -p data/raw/spotify_real data/raw/weather_real data/processed results/figures report
 ```
-The script will tell you exactly which CSV files to download from Kaggle, how to unzip them, and where to place them.
 
-4. Launch Jupyter from inside the project folder and run notebooks in order:
+4. Download the datasets from Kaggle (free account required) and place the CSV files in the correct folders:
+   - [Spotify Mood Dataset (Moodify)](https://www.kaggle.com/datasets/abdullahorzan/moodify-dataset) → unzip and place `278k_song_labelled.csv` in `data/raw/spotify_real/`
+   - [Historical Hourly Weather Data](https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data) → unzip and place `temperature.csv`, `humidity.csv`, `weather_description.csv`, and `city_attributes.csv` in `data/raw/weather_real/`
+
+5. Launch Jupyter from inside the project folder and run notebooks in order:
 ```bash
 jupyter notebook
 ```
@@ -51,3 +50,7 @@ Open and run 01_eda.ipynb through 04_clustering.ipynb in sequence.
 - **Preprocessing:** Multi-dataset merge, weather category simplification, one-hot encoding, StandardScaler normalization, 80/20 train/test split
 - **Regression:** Baseline (mean), Linear Regression, Ridge Regression — evaluated with MSE and R2
 - **Clustering:** KMeans (k=4 selected via elbow method), PCA for 2D visualization
+
+## Datasets
+- **Spotify Mood Dataset (Moodify):** 278k labeled songs with audio features — [Kaggle](https://www.kaggle.com/datasets/abdullahorzan/moodify-dataset)
+- **Historical Hourly Weather Data 2012-2017:** Hourly weather readings across 36 cities — [Kaggle](https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data)
