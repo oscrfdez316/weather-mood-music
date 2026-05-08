@@ -10,6 +10,7 @@ Do weather conditions (rain, sun, clouds, etc.) correlate with the emotional ton
 - **Historical Hourly Weather Data 2012-2017:** Hourly weather readings across 36 cities (temperature, humidity, weather description) — [Kaggle](https://www.kaggle.com/datasets/selfishgene/historical-hourly-weather-data)
 
 ## How to Run
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/oscrfdez316/weather-mood-music.git
@@ -23,11 +24,12 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Download the datasets from Kaggle and place CSVs in:
-   - data/raw/spotify_real/ — Spotify mood dataset
-   - data/raw/weather_real/ — Historical weather dataset
+3. Run the setup script and follow the instructions to download the datasets:
+```bash
+python3 setup.py
+```
 
-4. Run notebooks in order:
+4. Launch Jupyter and run notebooks in order:
 ```bash
 jupyter notebook
 ```
